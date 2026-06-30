@@ -1,0 +1,361 @@
+[2026-06-30 01:26:31]
+USER PROMPT: merhaba
+MODEL: qwen2.5:7b
+TIME: 9.73s
+STATUS: OK
+
+
+[2026-06-30 01:31:50]
+USER: benim adım yusuf
+MODEL: qwen2.5:7b
+TIME: 10.62s
+STATUS: OK
+
+[2026-06-30 01:32:02]
+USER: benim adım neydi
+MODEL: qwen2.5:7b
+TIME: 2.48s
+STATUS: OK
+
+[2026-06-30 01:43:18]
+USER: YOUTUBE: yapay zeka hakkında 5 viral fikir üret
+MODEL: qwen2.5:7b
+TIME: 34.71s
+STATUS: OK
+
+[2026-06-30 01:46:15]
+USER: 
+You are a viral YouTube content creator.
+
+Create a high-retention YouTube video script about: yapay zeka
+
+Format:
+- Hook (0-3 sec)
+- Problem statement
+- 3 main points
+- Retention hooks between sections
+- Strong ending CTA
+
+Make it engaging, emotional, and viral-ready.
+
+MODEL: qwen2.5:7b
+TIME: 42.01s
+STATUS: OK
+
+[2026-06-30 01:48:53]
+USER: 
+You are a professional YouTube script writer.
+
+TASK: Create a HIGH-RETENTION viral YouTube script about: yapay zeka
+
+STRICT FORMAT:
+
+1. TITLE (clickbait but realistic)
+
+2. HOOK (0-5 sec)
+- shocking / curiosity / problem
+
+3. OPEN LOOP (what will they learn?)
+
+4. MAIN CONTENT (3 sections)
+- Point 1 (simple explanation)
+- Point 2 (example or story)
+- Point 3 (insight or contrast)
+
+5. RETENTION TRIGGERS
+- pattern interrupts
+- curiosity hooks
+
+6. ENDING
+- summary + strong CTA (comment / subscribe)
+
+RULES:
+- No fluff
+- Short sentences
+- Natural speaking style
+- High engagement focus
+
+MODEL: qwen2.5:7b
+TIME: 32.76s
+STATUS: OK
+
+[2026-06-30 02:30:06]
+USER: 
+You are a professional YouTube script writer.
+
+TASK: Create a HIGH-RETENTION viral YouTube script about: yapay zeka
+
+STRICT FORMAT:
+
+1. TITLE (clickbait but realistic)
+
+2. HOOK (0-5 sec)
+- shocking / curiosity / problem
+
+3. OPEN LOOP (what will they learn?)
+
+4. MAIN CONTENT (3 sections)
+- Point 1 (simple explanation)
+- Point 2 (example or story)
+- Point 3 (insight or contrast)
+
+5. RETENTION TRIGGERS
+- pattern interrupts
+- curiosity hooks
+
+6. ENDING
+- summary + strong CTA (comment / subscribe)
+
+RULES:
+- No fluff
+- Short sentences
+- Natural speaking style
+- High engagement focus
+
+MODEL: qwen2.5:7b
+TIME: 40.8s
+STATUS: OK
+
+[2026-06-30 02:33:24]
+USER: 
+YOU ARE A PROFESSIONAL VIRAL YOUTUBE SCRIPT WRITER.
+
+You MUST follow the structure EXACTLY.
+No deviations. No extra explanations.
+
+TOPIC: yapay zeka
+
+OUTPUT FORMAT:
+
+TITLE:
+(one line, highly clickable)
+
+HOOK (0-5 sec):
+(max 2 sentences, emotional or shocking)
+
+OPEN LOOP:
+(one sentence curiosity gap)
+
+MAIN CONTENT:
+
+1. POINT:
+- explanation
+- simple language
+
+2. POINT:
+- example or story
+- relatable
+
+3. POINT:
+- insight or contrast
+- surprising fact
+
+RETENTION ELEMENTS:
+- 3 short bullet hooks only
+
+ENDING:
+- summary in 1 sentence
+- CTA (comment / subscribe)
+
+RULES:
+- No paragraphs longer than 3 lines
+- No extra commentary
+- No greetings
+- No "hope you like it"
+- Strict format only
+
+MODEL: qwen2.5:7b
+TIME: 24.89s
+STATUS: OK
+
+[2026-06-30 02:36:02]
+USER: 
+YOU ARE A PROFESSIONAL VIRAL YOUTUBE SCRIPT WRITER.
+
+You MUST follow the structure EXACTLY.
+No deviations. No extra explanations.
+
+TOPIC: yapay zeka
+
+OUTPUT FORMAT:
+
+TITLE:
+(one line, highly clickable)
+
+HOOK (0-5 sec):
+(max 2 sentences, emotional or shocking)
+
+OPEN LOOP:
+(one sentence curiosity gap)
+
+MAIN CONTENT:
+
+1. POINT:
+- explanation
+- simple language
+
+2. POINT:
+- example or story
+- relatable
+
+3. POINT:
+- insight or contrast
+- surprising fact
+
+RETENTION ELEMENTS:
+- 3 short bullet hooks only
+
+ENDING:
+- summary in 1 sentence
+- CTA (comment / subscribe)
+
+RULES:
+- No paragraphs longer than 3 lines
+- No extra commentary
+- No greetings
+- No "hope you like it"
+- Strict format only
+
+MODEL: qwen2.5:7b
+TIME: 25.68s
+STATUS: OK
+
+[2026-06-30 02:52:52]
+USER: 
+You are a world-class YouTube content director.
+
+IMPORTANT RULES:
+- Output ONLY in Turkish
+- No English words
+- No explanations outside format
+- No meta commentary
+
+TOPIC: yapay zeka
+
+OUTPUT FORMAT:
+
+TITLE:
+(max 10 words, emotional, clickable)
+
+HOOK (0-5 sec):
+(one strong curiosity or shock sentence)
+
+OPEN LOOP:
+(make viewer curious, do not give full information)
+
+MAIN CONTENT:
+
+1. POINT:
+(simple human explanation, no technical language)
+
+2. POINT:
+(real-life relatable example, not generic or robotic)
+
+3. POINT:
+(insight or perspective shift)
+
+RETENTION ELEMENTS:
+- 3 short hooks (curiosity, tension, surprise)
+
+ENDING:
+- 1 sentence conclusion
+- CTA: comment trigger
+
+MODEL: qwen2.5:7b
+TIME: 28.14s
+STATUS: OK
+
+[2026-06-30 02:56:05]
+USER: 
+You are a SENIOR YouTube VIRAL CONTENT DIRECTOR.
+
+CRITICAL RULES:
+- Output ONLY natural Turkish
+- No English
+- No robotic sentences
+- No explanations outside format
+- Human speaking style only
+
+TOPIC: yapay zeka
+
+TASK: Create a HIGH RETENTION viral YouTube script.
+
+FORMAT:
+
+TITLE:
+(max 8-10 words, emotional, clickable)
+
+HOOK (0-5 sec):
+(one strong curiosity or emotional shock sentence)
+
+OPEN LOOP:
+(one simple curiosity gap sentence)
+
+MAIN CONTENT:
+
+1. POINT:
+(explain like talking to a friend, simple and natural)
+
+2. POINT:
+(real-life example, must feel believable and human)
+
+3. POINT:
+(insight or perspective shift, slightly surprising)
+
+RETENTION ELEMENTS:
+- 3 short hooks (1 sentence each)
+- curiosity, tension, surprise
+
+ENDING:
+- 1 short closing sentence
+- CTA: ask viewers to comment
+
+MODEL: qwen2.5:7b
+TIME: 20.21s
+STATUS: OK
+
+[2026-06-30 03:01:07]
+USER: 
+You are a native Turkish YouTube content creator.
+
+VERY IMPORTANT RULES:
+- Write ONLY natural spoken Turkish
+- No formal language
+- No robotic AI phrases
+- No repetitive filler sentences
+- Write like a real human talking to camera
+
+TOPIC: yapay zeka
+
+OUTPUT FORMAT:
+
+TITLE:
+(short, emotional, clickable)
+
+HOOK:
+(one strong natural sentence that creates curiosity)
+
+OPEN LOOP:
+(one simple curiosity sentence)
+
+MAIN CONTENT:
+
+1. POINT:
+(simple daily language explanation)
+
+2. POINT:
+(real-life example, must feel authentic and human)
+
+3. POINT:
+(insight or surprising perspective)
+
+RETENTION:
+- 3 short natural sentences (no list style, just short hooks)
+
+ENDING:
+(one sentence + comment trigger)
+
+MODEL: qwen2.5:7b
+TIME: 40.68s
+STATUS: OK
+
