@@ -1,136 +1,120 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-import time
+import sqlite3
+import requests
 
 app = FastAPI()
 
-# =========================
-# SIMPLE AI ENGINE
-# =========================
-def ai_engine(message: str):
-    return f"🤖 AI: {message} için analiz yapıyorum..."
+# DB
+conn = sqlite3.connect("saas.db", check_same_thread=False)
+cursor = conn.cursor()
 
-# =========================
-# REQUEST MODEL
-# =========================
-class ChatRequest(BaseModel):
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS chats (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+message TEXT,
+response TEXT
+)
+""")
+conn.commit()
+
+# AI (local fallback)
+def ai_engine(prompt):
+    try:
+        r = requests.post(
+            "http://localhost:11434/api/generate",
+            json={"model":"llama3.1","prompt":prompt,"stream":False}
+        )
+        return r.json()["response"]
+    except:
+        return "AI: " + prompt
+
+
+class Chat(BaseModel):
     message: str
 
-# =========================
-# CHAT API (STREAMING SIMULATION)
-# =========================
-@app.post("/chat-stream")
-def chat_stream(req: ChatRequest):
-    def generate():
-        response = ai_engine(req.message)
-        for char in response:
-            yield char
-            time.sleep(0.02)  # typing effect
 
-    return app.response_class(generate(), media_type="text/plain")
+@app.post("/chat")
+def chat(req: Chat):
+    response = ai_engine(req.message)
 
-# =========================
-# UI
-# =========================
+    cursor.execute(
+        "INSERT INTO chats (message, response) VALUES (?,?)",
+        (req.message, response)
+    )
+    conn.commit()
+
+    return {"response": response}
+
+
 @app.get("/", response_class=HTMLResponse)
-def home():
+def ui():
     return """
 <!DOCTYPE html>
 <html>
 <head>
-<title>AI SaaS Pro v3</title>
+<title>AI SaaS</title>
 
 <style>
 body {
-    margin:0;
-    font-family: Arial;
-    background:#0a0f1f;
-    color:white;
-    display:flex;
-    height:100vh;
+margin:0;
+font-family:Arial;
+background:#0b0f19;
+color:white;
+display:flex;
 }
 
 .sidebar {
-    width:260px;
-    background:#0f172a;
-    padding:20px;
+width:260px;
+background:#111827;
+padding:20px;
 }
 
-.sidebar h2 {
-    color:#8b5cf6;
+.main {
+flex:1;
+display:flex;
+flex-direction:column;
 }
 
 .chat {
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-
-.messages {
-    flex:1;
-    padding:20px;
-    overflow-y:auto;
-}
-
-.msg {
-    padding:12px;
-    margin:10px 0;
-    border-radius:10px;
-    background:rgba(255,255,255,0.05);
-}
-
-.user {
-    background:#1f2937;
-}
-
-.ai {
-    background:#111827;
-    border-left:3px solid #8b5cf6;
-}
-
-.inputBox {
-    display:flex;
-    padding:10px;
-    background:#0f172a;
+flex:1;
+padding:20px;
+overflow:auto;
 }
 
 input {
-    flex:1;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#111827;
-    color:white;
+padding:12px;
+width:80%;
+border-radius:10px;
+border:none;
 }
 
 button {
-    margin-left:10px;
-    padding:12px 18px;
-    background:#8b5cf6;
-    border:none;
-    border-radius:8px;
-    color:white;
-    cursor:pointer;
+padding:12px;
+border:none;
+background:#6366f1;
+color:white;
+border-radius:10px;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="sidebar">
-<h2>⚡ AI SaaS</h2>
+<h2>AI SaaS</h2>
 <p>Dashboard</p>
 <p>History</p>
-<p>Settings</p>
 </div>
 
-<div class="chat">
+<div class="main">
 
-<div class="messages" id="messages"></div>
+<div class="chat" id="chat"></div>
 
-<div class="inputBox">
-<input id="input" placeholder="Ask AI..." />
+<div style="padding:10px;">
+<input id="msg" placeholder="Ask..." />
 <button onclick="send()">Send</button>
 </div>
 
@@ -138,39 +122,22 @@ button {
 
 <script>
 
-async function send() {
-    let input = document.getElementById("input");
-    let text = input.value;
+async function send(){
+let msg = document.getElementById("msg").value;
 
-    if(!text) return;
+document.getElementById("chat").innerHTML +=
+`<div>🧑 ${msg}</div>`;
 
-    document.getElementById("messages").innerHTML +=
-        `<div class='msg user'>👤 ${text}</div>`;
+const res = await fetch("/chat",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message:msg})
+});
 
-    input.value = "";
+const data = await res.json();
 
-    const res = await fetch("/chat-stream", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({message: text})
-    });
-
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
-
-    let aiMsg = document.createElement("div");
-    aiMsg.className = "msg ai";
-    document.getElementById("messages").appendChild(aiMsg);
-
-    let textContent = "";
-
-    while(true){
-        const {value, done} = await reader.read();
-        if(done) break;
-
-        textContent += decoder.decode(value);
-        aiMsg.innerText = textContent;
-    }
+document.getElementById("chat").innerHTML +=
+`<div>🤖 ${data.response}</div>`;
 }
 
 </script>
